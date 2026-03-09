@@ -27,7 +27,7 @@ pub async fn main(args: Args) -> anyhow::Result<()> {
 
     let device = load_device_file(&config.config_dir, device).await?;
 
-    let short_id = &device.device_id.hex()[..3];
+    let device_id = &device.device_id.hex();
     let AvailableDevice {
         organization_id,
         human_handle,
@@ -36,7 +36,7 @@ pub async fn main(args: Args) -> anyhow::Result<()> {
     } = &device;
 
     println!("You are about to remove the following device:");
-    println!("{YELLOW}{short_id}{RESET} - {organization_id}: {human_handle} @ {device_label}");
+    println!("{YELLOW}{device_id}{RESET} - {organization_id}: {human_handle} @ {device_label}");
     println!("Are you sure? (y/n)");
 
     let mut input = String::new();

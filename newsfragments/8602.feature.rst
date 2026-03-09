@@ -1,0 +1,1 @@
+CLI: Display full device id instead of short id in ``device remove`` confirmation message.
